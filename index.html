@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Brody Snyder — Computer Science, Machine Intelligence</title>
+<meta name="description" content="Brody Snyder — CS + Machine Intelligence at Purdue. Embedded firmware, computer vision, and machine learning. Selected work from Iridium, Burbio, and Purdue research labs.">
+<meta name="theme-color" content="#07090C">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Brody Snyder — Computer Science, Machine Intelligence">
+<meta property="og:description" content="Embedded firmware, computer vision, and machine learning. Selected work from Iridium, Burbio, and Purdue research labs.">
+<meta property="og:image" content="assets/work/cmsc-thermal-track.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip" href="#work">Skip to work</a>
+
+<!-- ════════ instrument frame ════════ -->
+<div class="frame" aria-hidden="true">
+  <span class="frame__corner frame__corner--tl"></span>
+  <span class="frame__corner frame__corner--tr"></span>
+  <span class="frame__corner frame__corner--bl"></span>
+  <span class="frame__corner frame__corner--br"></span>
+</div>
+<div class="reticle" aria-hidden="true"><i></i><i></i></div>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ════════ nav ════════ -->
+<header class="nav" id="nav">
+  <a class="nav__mark" href="#top">
+    <span class="nav__dot" aria-hidden="true"></span>
+    <span class="nav__name">BRODY&nbsp;SNYDER</span>
+    <span class="nav__ver">v2026.7</span>
+  </a>
+
+  <nav class="nav__links" aria-label="Primary">
+    <a href="#work"><span>01</span>WORK</a>
+    <a href="#about"><span>02</span>ABOUT</a>
+    <a href="#stack"><span>03</span>STACK</a>
+    <a href="#contact"><span>04</span>CONTACT</a>
+  </nav>
+
+  <div class="nav__right">
+    <span class="nav__clock" id="clock" aria-hidden="true">--:--:--</span>
+    <a class="btn btn--sm" href="assets/doc/BrodySnyderResume.pdf" target="_blank" rel="noopener">RÉSUMÉ<i class="btn__arrow" aria-hidden="true">↗</i></a>
+    <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ════════ hero ════════ -->
+<main id="top">
+<section class="hero" id="hero">
+  <canvas class="hero__canvas" id="field" aria-hidden="true"></canvas>
+  <div class="hero__scrim" aria-hidden="true"></div>
+
+  <div class="hero__inner">
+    <p class="hero__eyebrow">
+      <span class="pulse" aria-hidden="true"></span>
+      WEST&nbsp;LAFAYETTE,&nbsp;IN <em>/</em> WASHINGTON,&nbsp;DC
+      <em>/</em> OPEN&nbsp;TO&nbsp;SUMMER&nbsp;2027
+    </p>
+
+    <h1 class="hero__title">
+      <span class="line"><span class="w">BRODY</span></span>
+      <span class="line"><span class="w">SNYDER</span></span>
+    </h1>
+
+    <div class="hero__meta">
+      <p class="hero__lede">
+        Computer Science <em>·</em> Machine&nbsp;Intelligence at&nbsp;Purdue.
+        I build systems that <b>sense</b>, <b>decide</b>, and <b>act</b> —
+        firmware close to the metal, vision models that read the physical world,
+        and the interfaces that make both legible.
+      </p>
+      <dl class="hero__spec">
+        <div><dt>DISCIPLINE</dt><dd>Embedded · CV · ML</dd></div>
+        <div><dt>CURRENT</dt><dd>SWE Intern, Iridium</dd></div>
+        <div><dt>GRAD</dt><dd>May 2028</dd></div>
+      </dl>
+    </div>
+
+    <a class="hero__scroll" href="#work">
+      <span>SCROLL&nbsp;/&nbsp;INDEX</span>
+      <i aria-hidden="true"></i>
+    </a>
+  </div>
+</section>
+
+<!-- ════════ ticker ════════ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker__track" id="tickerTrack"></div>
+</div>
+
+<!-- ════════ telemetry ════════ -->
+<section class="telemetry" aria-label="By the numbers">
+  <div class="wrap telemetry__grid">
+    <div class="stat"><span class="stat__n" data-count="3.82" data-dec="2">0</span><span class="stat__l">GPA <em>/ 4.00</em></span></div>
+    <div class="stat"><span class="stat__n" data-count="1000" data-suffix="+">0</span><span class="stat__l">Schools automated</span></div>
+    <div class="stat"><span class="stat__n" data-count="200" data-suffix="+">0</span><span class="stat__l">Study hours led</span></div>
+    <div class="stat"><span class="stat__n" data-count="13">0</span><span class="stat__l">Shipped projects</span></div>
+  </div>
+</section>
+
+<!-- ════════ work ════════ -->
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="shead">
+      <p class="shead__num">01 <em>//</em></p>
+      <h2 class="shead__title">SELECTED&nbsp;WORK</h2>
+      <p class="shead__note">
+        Thirteen builds across firmware, computer vision, research, and the web.
+        Every image below is real output from the thing itself — thermal tracks,
+        power traces, detector overlays, shipped screens.
+      </p>
+    </div>
+
+    <div class="filters" id="filters" role="tablist" aria-label="Filter work"></div>
+
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<!-- ════════ about ════════ -->
+<section class="section section--alt" id="about">
+  <div class="wrap">
+    <div class="shead">
+      <p class="shead__num">02 <em>//</em></p>
+      <h2 class="shead__title">OPERATOR</h2>
+    </div>
+
+    <div class="about">
+      <div class="about__bio">
+        <p class="about__lead">
+          I'm a Computer Science student at Purdue's John Martinson Honors College,
+          concentrating in Machine Intelligence with minors in Mathematics and Economics.
+        </p>
+        <p>
+          My work keeps landing in the same place: the seam between software and the
+          physical world. At <b>Iridium</b> that means transceiver firmware and a solar
+          charging subsystem for satellite hardware. At <b>Burbio</b> it meant teaching a
+          pipeline to read a thousand school calendars the way a person does. In the lab
+          it means watching a 3D printer's melt front through a thermal camera and
+          changing the machine's behavior mid-print.
+        </p>
+        <p>
+          I got to Purdue on the <b>Chick Evans Scholarship</b> — a full tuition and housing
+          award for golf caddies. I now serve as Vice President of New Scholars for that
+          same house, which mostly means I care a lot about people getting a fair shot at
+          the room they're in.
+        </p>
+        <p class="about__sig">— Brody</p>
+      </div>
+
+      <ol class="timeline" id="timeline"></ol>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ stack ════════ -->
+<section class="section" id="stack">
+  <div class="wrap">
+    <div class="shead">
+      <p class="shead__num">03 <em>//</em></p>
+      <h2 class="shead__title">STACK</h2>
+      <p class="shead__note">Tools I reach for without thinking about it.</p>
+    </div>
+    <div class="stack" id="stackGrid"></div>
+  </div>
+</section>
+
+<!-- ════════ contact ════════ -->
+<section class="section section--contact" id="contact">
+  <div class="wrap">
+    <div class="shead">
+      <p class="shead__num">04 <em>//</em></p>
+      <h2 class="shead__title">CONTACT</h2>
+    </div>
+
+    <a class="bigmail" href="mailto:brodysnyder2028@gmail.com">
+      <span class="bigmail__label">SAY&nbsp;HELLO</span>
+      <span class="bigmail__addr">brodysnyder2028<em>@</em>gmail.com</span>
+      <span class="bigmail__arrow" aria-hidden="true">→</span>
+    </a>
+
+    <ul class="social">
+      <li><a href="https://github.com/bsniddy" target="_blank" rel="noopener"><span>GH</span>GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/brody-snyder" target="_blank" rel="noopener"><span>LI</span>LinkedIn</a></li>
+      <li><a href="assets/doc/BrodySnyderResume.pdf" target="_blank" rel="noopener"><span>PDF</span>Résumé</a></li>
+      <li><a href="mailto:brodysnyder2028@gmail.com"><span>@</span>Email</a></li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__inner">
+    <p>© <span id="year">2026</span> BRODY&nbsp;SNYDER</p>
+    <p class="foot__mid">40.4237°N&nbsp;86.9212°W <em>/</em> BUILT&nbsp;FROM&nbsp;SCRATCH</p>
+    <p><a href="#top">BACK&nbsp;TO&nbsp;TOP&nbsp;↑</a></p>
+  </div>
+</footer>
+
+<!-- ════════ case study overlay ════════ -->
+<div class="case" id="case" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="caseTitle" tabindex="-1">
+  <div class="case__backdrop" data-close></div>
+  <article class="case__panel">
+    <button class="case__close" data-close aria-label="Close">
+      <span aria-hidden="true">ESC</span>
+      <i aria-hidden="true"></i>
+    </button>
+    <div class="case__scroll" id="caseBody"></div>
+  </article>
+</div>
+
+<script src="js/projects.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
