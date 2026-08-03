@@ -1,4 +1,4 @@
-# brodysnyder.com: portfolio
+# Portfolio
 
 A hand-built static portfolio. No framework, no build step, no dependencies.
 Open `index.html` and it runs.
@@ -39,10 +39,10 @@ Everything is in **`js/projects.js`**. To add a project, copy a block:
 
 ```js
 {
-  id: 'my-project',                 // unique: also the deep link (#my-project)
+  id: 'my-project',                 // unique. also the deep link (#my-project)
   title: 'Project Name',
   subtitle: 'One line under the title',
-  org: 'Where', role: 'What you did', period: 'Mon YYYY: Mon YYYY',
+  org: 'Where', role: 'What you did', period: 'Mon YYYY to Mon YYYY',
   cat: 'EMBEDDED',                  // must be in CATEGORIES
   tags: ['EMBEDDED', 'FIRMWARE'],
   accent: '#FF7A1A',                // this card's signal color
