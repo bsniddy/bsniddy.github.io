@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════
-   BRODY SNYDER — PORTFOLIO
+   BRODY SNYDER - PORTFOLIO
    Design language: "instrument panel"
    Near-black chassis, monospace annotation, thermal signal color.
    ═══════════════════════════════════════════════════════════ */
@@ -20,7 +20,7 @@
   --muted:     #6E7A87;
   --faint:     #47525E;
 
-  /* signal — thermal ramp */
+  /* signal - thermal ramp */
   --sig:       #FF7A1A;   /* primary  · hot   */
   --sig-warm:  #F5C24A;   /* amber            */
   --sig-ok:    #3DDC97;   /* green    · live  */
@@ -349,7 +349,7 @@ ul,ol{ list-style:none; }
   text-align:left;
   transition:border-color .4s var(--ease), transform .5s var(--ease), background .4s var(--ease);
 }
-/* editorial rhythm — every row sums to 12: 6+6, 4+4+4, then a full-width finale */
+/* editorial rhythm - every row sums to 12: 6+6, 4+4+4, then a full-width finale */
 .card--wide{ grid-column:span 6; }
 .card--full{ grid-column:span 12; }
 .card--full .card__media{ aspect-ratio:24/9; }

@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════
-   BRODY SNYDER — PORTFOLIO
+   BRODY SNYDER - PORTFOLIO
    No dependencies. No build step. Just the browser.
    ═══════════════════════════════════════════════════════════ */
 (() => {
@@ -11,7 +11,7 @@ const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const FINE    = matchMedia('(hover:hover) and (pointer:fine)').matches;
 
 /* ─────────────────────────────────────────────────────────
-   1. SEEDED NOISE  — deterministic generated artwork
+   1. SEEDED NOISE  - deterministic generated artwork
    ───────────────────────────────────────────────────────── */
 function rng(seed){
   let s = 0;
@@ -121,7 +121,7 @@ function plate(kind, accent, seed){
 }
 
 /* ─────────────────────────────────────────────────────────
-   3. HERO FIELD  — thermal plasma + reactive trace
+   3. HERO FIELD  - thermal plasma + reactive trace
    ───────────────────────────────────────────────────────── */
 function heroField(){
   const cv = $('#field');
@@ -250,7 +250,7 @@ function coverHTML(p, i){
   if (typeof p.cover === 'string'){
     const cls = p.coverFit === 'contain' ? ' card__media--contain' : '';
     return `<div class="card__media${cls}">
-      <img src="${p.cover}" alt="${p.title} — project output" loading="${i < 3 ? 'eager' : 'lazy'}" decoding="async">
+      <img src="${p.cover}" alt="${p.title} project output" loading="${i < 3 ? 'eager' : 'lazy'}" decoding="async">
       <span class="card__scan"></span><span class="card__glow"></span>
       <span class="card__idx">${String(i + 1).padStart(2,'0')}</span>
       <span class="card__chip">${p.cat}</span>
