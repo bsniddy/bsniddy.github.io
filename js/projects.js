@@ -181,13 +181,17 @@ const PROJECTS = [
     cat: 'ML & CV',
     tags: ['ML & CV', 'FINANCE', 'MLOPS'],
     accent: '#B08BFF',
-    cover: { gen: 'scatter' },
+    cover: 'assets/work/numerai-diagnostics.jpg',
+    coverFit: 'cover',
     blurb: 'Building for the tournament where overfitting is not a bug you find later; it is the entire scoring function.',
     stack: ['Python', 'NumPy', 'Pandas', 'Feature neutralization', 'Hyperparameter search'],
     body: [
       { h: 'Problem', p: 'Numerai hands you thousands of obfuscated features over encrypted financial eras and scores you on live data you have never seen. Any model that leans on a feature whose relationship to the target is era-specific gets quietly destroyed.' },
       { h: 'Approach', p: 'Feature-target correlation analysis across every feature group to find what actually carries signal, feature neutralization to strip exposure that will not survive a regime change, cross-validation structured by era rather than by row, and a tuning pipeline the team can rerun rather than a config someone hand-tweaked once.' },
       { h: 'Result', p: 'Ongoing submissions with ML@Purdue, and a repeatable pipeline where the goal is explicitly generalization rather than in-sample score.' }
+    ],
+    gallery: [
+      { src: 'assets/work/numerai-diagnostics.jpg', cap: '20-day diagnostics on the live tournament: Sharpe 0.91, CORR20v2 0.0159, max drawdown -0.167.' }
     ]
   },
 
@@ -202,7 +206,8 @@ const PROJECTS = [
     cat: 'FULL-STACK',
     tags: ['FULL-STACK', 'TYPESCRIPT', 'SUPABASE'],
     accent: '#3DDC97',
-    cover: { gen: 'grid' },
+    cover: 'assets/work/personalos-insights.jpg',
+    coverFit: 'cover',
     blurb: 'One dark instrument panel for training, school, tasks, finance and career, plus a bot that captures thoughts by voice.',
     stack: ['TypeScript', 'Vite', 'Supabase', 'Node', 'Telegram Bot API', 'Vercel'],
     body: [
@@ -210,7 +215,9 @@ const PROJECTS = [
       { h: 'Approach', p: 'A single dashboard with numbered panels (session, habits, training, school, tasks, career, nutrition, finance, weekly review) backed by Supabase, plus a companion bot that accepts a voice note or a one-line dump and routes it to the right panel later. Same design language you are looking at now: monospace labels, panel numbering, one signal color for state.' },
       { h: 'Result', p: 'Running daily. Capture takes about three seconds and nothing has to be filed at the moment it is thought of.' }
     ],
-    note: 'Screenshots withheld: the dashboard renders my actual personal data.'
+    gallery: [
+      { src: 'assets/work/personalos-insights.jpg', cap: 'The Insights panel, reading my own logged training and recovery data.' }
+    ]
   },
 
   /* ── 09 ─────────────────────────────────────────────── */
@@ -224,7 +231,8 @@ const PROJECTS = [
     cat: 'EMBEDDED',
     tags: ['EMBEDDED', 'ELECTRON', 'SERIAL'],
     accent: '#FF9F45',
-    cover: { gen: 'bars' },
+    cover: 'assets/work/launchpad-solar.jpg',
+    coverFit: 'contain',
     blurb: 'A native desktop panel for talking to satellite modems over serial without living inside a terminal.',
     stack: ['Electron', 'React', 'TypeScript', 'Mantine', 'Vite', 'Serial / AT commands'],
     body: [
@@ -232,7 +240,10 @@ const PROJECTS = [
       { h: 'Approach', p: 'An Electron app with a main-process serial layer and a typed IPC boundary to the renderer, so the UI never guesses about device state. Panels for overview, link status and command history, built with React and Mantine against a shared theme, macOS-first, because that is where the work happens.' },
       { h: 'Result', p: 'Device state you can read at a glance instead of parsing, and a command surface that does not require memorising the AT set.' }
     ],
-    note: 'Personal tooling, built against publicly documented developer-kit interfaces.'
+    gallery: [
+      { src: 'assets/work/launchpad-solar.jpg', cap: 'The 9704 Launch Pad assembly this app talks to: solar panel, charge board, UV sensor and battery.', pad: true }
+    ],
+    note: 'Personal tooling, built against publicly documented developer-kit interfaces. Assembly diagram from Iridium\'s published 9704 Launch Pad documentation.'
   },
 
   /* ── 10 ─────────────────────────────────────────────── */
@@ -246,7 +257,8 @@ const PROJECTS = [
     cat: 'FULL-STACK',
     tags: ['FULL-STACK', 'REACT NATIVE', 'MONGODB'],
     accent: '#FF6FB5',
-    cover: { gen: 'pixels' },
+    cover: 'assets/work/cruw-mark.jpg',
+    coverFit: 'cover',
     blurb: 'A habit tracker built on the observation that the streak you keep is the one somebody else can see.',
     stack: ['React Native (Expo)', 'JavaScript', 'Node', 'MongoDB Atlas'],
     body: [
