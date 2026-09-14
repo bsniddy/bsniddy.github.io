@@ -135,13 +135,17 @@ const PROJECTS = [
     cat: 'RESEARCH',
     tags: ['RESEARCH', 'DEEP LEARNING', 'FLASK'],
     accent: '#FF5A6E',
-    cover: { gen: 'wave' },
+    cover: 'assets/work/digitaltwin-poster.jpg',
+    coverFit: 'cover',
     blurb: 'A deep model over wearable biosensor streams, plus the web UI that made its output inspectable in real time.',
     stack: ['Python', 'PyTorch', 'Flask', 'Time-series modeling'],
     body: [
       { h: 'Problem', p: 'A digital twin of the cardiovascular system is only useful if someone can see what it thinks and when it changed its mind. The modeling work was well underway; the outputs were arrays in a notebook.' },
       { h: 'Approach', p: 'I contributed to the deep learning model detecting cardiovascular failure signatures in biosensor data, and then built the thing it was missing: a Flask web interface that renders twin outputs live so researchers can scrub the signal, compare predicted against measured, and inspect the moments where they diverge.' },
       { h: 'Result', p: 'Real-time inspection and analysis of twin outputs in the browser, which turned model debugging from an export-and-plot loop into something you could actually watch happen.' }
+    ],
+    gallery: [
+      { src: 'assets/work/digitaltwin-poster.jpg', cap: 'Presenting the project at the Purdue undergraduate research symposium.' }
     ]
   },
 
