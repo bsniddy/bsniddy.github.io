@@ -16,29 +16,31 @@ const PROJECTS = [
   /* ── 01 ─────────────────────────────────────────────── */
   {
     id: 'iridium',
-    title: 'Solar Power Subsystem',
-    subtitle: 'Iridium 9704 satellite transceiver',
+    title: 'Iridium 9704 Solar Power Subsystem',
+    subtitle: 'Off-grid power firmware, and the desktop tool for bringing it up',
     org: 'Iridium Communications',
     role: 'Software Engineering Intern',
     period: 'May 2026 to Present',
     cat: 'EMBEDDED',
-    tags: ['EMBEDDED', 'FIRMWARE', 'POWER'],
+    tags: ['EMBEDDED', 'FIRMWARE', 'POWER', 'ELECTRON'],
     accent: '#F5C24A',
-    cover: 'assets/work/iridium-joulescope.jpg',
-    coverFit: 'cover',
-    blurb: 'Battery-management and power-path firmware that lets a satellite dev kit run off-grid on solar.',
-    stack: ['C', 'Embedded C++', 'BQ24195L PMIC', 'Joulescope', 'Git', 'CI/CD'],
+    cover: 'assets/work/launchpad-solar.jpg',
+    coverFit: 'contain',
+    blurb: 'Battery-management and power-path firmware that lets a satellite dev kit run off-grid on solar, plus a desktop panel for talking to the modem over serial.',
+    stack: ['C', 'Embedded C++', 'BQ24195L PMIC', 'Joulescope', 'Electron', 'React', 'Serial / AT'],
     body: [
       { h: 'Problem', p: 'The 9704 developer kit is built to sit on a bench with a wall supply. Field deployments are the opposite: no mains power, unpredictable sun, and a transmit burst that spikes current the instant the modem wakes up. Without a power budget the kit browns out mid-transmission.' },
       { h: 'Approach', p: 'I extended the kit with a solar charging subsystem and wrote the firmware around it: power-path arbitration between panel, battery and load, charge-state supervision on the PMIC, and instrumentation so every state transition shows up on a current trace instead of a guess. Every change is validated against captured waveforms and folded into the CI/CD pipeline the team already runs.' },
-      { h: 'Result', p: 'Measured, repeatable power behavior: an idle floor around 90 mA at 8 V, a clean charge-path handoff, and transmit spikes that are bounded instead of surprising. That turns "how long does it last outside?" into a number rather than a hope.' }
+      { h: 'Tooling', p: 'Bringing the board up meant a serial console, a command reference open in another window, and a mental model of device state reconstructed from scrollback every time. So I built a desktop panel for it: an Electron app with a main-process serial layer and a typed IPC boundary to the renderer, so the UI never guesses about state. Panels for overview, link status and command history, built with React and Mantine.' },
+      { h: 'Result', p: 'Measured, repeatable power behavior: an idle floor around 90 mA at 8 V, a clean charge-path handoff, and transmit spikes that are bounded instead of surprising. That turns "how long does it last outside?" into a number rather than a hope. Alongside it, device state you can read at a glance instead of parsing, without memorising the AT set.' }
     ],
     gallery: [
+      { src: 'assets/work/launchpad-solar.jpg', cap: 'The 9704 Launch Pad assembly: solar panel, charge board, UV sensor and battery.', pad: true },
       { src: 'assets/work/iridium-joulescope.jpg', cap: 'Joulescope capture: cold start into steady-state draw, ~94 mA at 8 V.' },
       { src: 'assets/work/iridium-board.jpg', cap: 'Power-path handoff. The notch is the load dropping out; the spike is the reset transient.' },
       { src: 'assets/work/iridium-lowlight.jpg', cap: 'Low-light solar test: charge current under a degraded panel input.' }
     ],
-    note: 'Shown at the level of detail already published on my résumé. Implementation specifics are proprietary.'
+    note: 'Shown at the level of detail already published on my résumé. Implementation specifics are proprietary. The desktop panel is personal tooling built against publicly documented developer-kit interfaces; the assembly diagram is from Iridium\'s published 9704 Launch Pad documentation.'
   },
 
   /* ── 02 ─────────────────────────────────────────────── */
@@ -225,31 +227,6 @@ const PROJECTS = [
     ]
   },
 
-  /* ── 09 ─────────────────────────────────────────────── */
-  {
-    id: 'launchpad',
-    title: 'LaunchPad Dashboard',
-    subtitle: 'Desktop diagnostics for Iridium 9704 / 9604',
-    org: 'Personal',
-    role: 'Engineer',
-    period: '2026',
-    cat: 'EMBEDDED',
-    tags: ['EMBEDDED', 'ELECTRON', 'SERIAL'],
-    accent: '#FF9F45',
-    cover: 'assets/work/launchpad-solar.jpg',
-    coverFit: 'contain',
-    blurb: 'A native desktop panel for talking to satellite modems over serial without living inside a terminal.',
-    stack: ['Electron', 'React', 'TypeScript', 'Mantine', 'Vite', 'Serial / AT commands'],
-    body: [
-      { h: 'Problem', p: 'Bringing up a satellite transceiver means a serial console, a command reference open in another window, and a mental model of state you are reconstructing from scrollback every time.' },
-      { h: 'Approach', p: 'An Electron app with a main-process serial layer and a typed IPC boundary to the renderer, so the UI never guesses about device state. Panels for overview, link status and command history, built with React and Mantine against a shared theme, macOS-first, because that is where the work happens.' },
-      { h: 'Result', p: 'Device state you can read at a glance instead of parsing, and a command surface that does not require memorising the AT set.' }
-    ],
-    gallery: [
-      { src: 'assets/work/launchpad-solar.jpg', cap: 'The 9704 Launch Pad assembly this app talks to: solar panel, charge board, UV sensor and battery.', pad: true }
-    ],
-    note: 'Personal tooling, built against publicly documented developer-kit interfaces. Assembly diagram from Iridium\'s published 9704 Launch Pad documentation.'
-  },
 
   /* ── 10 ─────────────────────────────────────────────── */
   {
