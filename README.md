@@ -1,53 +1,49 @@
 # Portfolio
 
-A hand-built static portfolio. No framework, no build step, no dependencies.
-Open `index.html` and it runs.
+A hand-built static site. No framework, no build step, no dependencies.
+Open `index.html` and it runs. Live at **bsniddy.github.io**.
 
 ```
 portfolio/
-├── index.html          page structure
-├── css/style.css       the entire design system
+├── index.html          page shell (header, list container, overlay)
+├── css/style.css       the whole design
 ├── js/projects.js      ← ALL CONTENT LIVES HERE
-├── js/main.js          hero canvas, grid, case studies, interactions
+├── js/main.js          builds the list, handles the larger view
 └── assets/
     ├── favicon.svg
     ├── doc/            résumé PDF
+    ├── qr/             QR codes pointing at the live site
     └── work/           project imagery
 ```
 
-## Design language: "instrument panel"
+## Design
 
-The look is pulled from your own tools rather than a template: the near-black
-chassis and phosphor trace of a Joulescope capture, the blue→cyan→green→amber→red
-ramp of the thermal camera in the CMSC work, and the numbered `01 //` panels from
-Personal OS.
+Minimal on purpose. White background, black text, one column, hairline rules.
+No accent color, no animation beyond a hover tint and a slow image scale.
 
-| Token | Value | Used for |
-|---|---|---|
-| `--void` | `#07090C` | page chassis |
-| `--sig` | `#FF7A1A` | primary signal / accents |
-| `--sig-warm` | `#F5C24A` | amber, name gradient |
-| `--sig-ok` | `#3DDC97` | live indicators |
-| `--sig-cool` / `--sig-cold` | `#22D3D8` / `#4C9DFF` | cool end of the ramp |
+The page is a header and then a list. Each row is **image on the left,
+description on the right**. Clicking a row opens that project full screen with
+the picture at full width, the complete Problem / Approach / Result write-up,
+and the rest of its gallery underneath. `Esc` or the Close button returns you
+to the list.
 
-Monospace carries every label, number and annotation. The sans is reserved for
-display type. Change `--sig` in `css/style.css` and the whole site retunes.
+Everything else the site used to carry (hero canvas, ticker, stat counters,
+category filters, custom cursor) is gone.
 
 ## Editing content
 
-Everything is in **`js/projects.js`**. To add a project, copy a block:
+Everything is in **`js/projects.js`**. Order in that array is the order on the
+page. To add a project, copy a block:
 
 ```js
 {
   id: 'my-project',                 // unique. also the deep link (#my-project)
   title: 'Project Name',
-  subtitle: 'One line under the title',
+  subtitle: 'One line, shown in the larger view',
   org: 'Where', role: 'What you did', period: 'Mon YYYY to Mon YYYY',
-  cat: 'EMBEDDED',                  // must be in CATEGORIES
   tags: ['EMBEDDED', 'FIRMWARE'],
-  accent: '#FF7A1A',                // this card's signal color
-  cover: 'assets/work/shot.jpg',    // or { gen: 'wave' } to draw a plate
-  blurb: 'One sentence for the card.',
+  cover: 'assets/work/shot.jpg',    // omit for no picture
+  blurb: 'One or two sentences, shown in the list.',
   stack: ['C', 'Python'],
   body: [ { h: 'Problem', p: '…' }, { h: 'Approach', p: '…' }, { h: 'Result', p: '…' } ],
   gallery: [ { src: 'assets/work/a.jpg', cap: 'Caption.' } ],
@@ -56,16 +52,26 @@ Everything is in **`js/projects.js`**. To add a project, copy a block:
 }
 ```
 
-Then add its layout width to `LAYOUT` in `js/main.js`: `'wide'` (half),
-`'full'` (full bleed), or `''` (third). Keep each row summing to 12 columns:
-`6+6`, `4+4+4`, `12`.
+That is the only file to touch. Nothing in `main.js` needs updating.
 
-No image? Use `cover: { gen: 'wave' }`. Options: `wave`, `scatter`, `grid`,
-`orbit`, `bars`, `pixels`. Each is drawn deterministically from the project `id`,
-so it never changes between loads.
+## Projects without a picture
 
-`TIMELINE` and `STACK` at the bottom of the same file feed the About and Stack
-sections.
+A row shows an image only if `cover` is a real file path. Five projects
+(Digital Twin, Numerai, Personal OS, LaunchPad, CRUW) have none, so their rows
+render text-only. The image column is still reserved but collapses to zero
+height, which keeps every title aligned down the page without leaving a gap.
+
+Drop a real screenshot in `assets/work/`, point `cover` at it, and the picture
+appears on both the site and the PDF.
+
+Some older fields in `projects.js` (`cat`, `accent`, and the `CATEGORIES`
+array, plus any `cover: { gen: ... }` placeholders) are left over from the
+previous design and are no longer read by anything. They are harmless.
+
+## House style
+
+No em dashes anywhere. Use a colon for an explanation or list, a semicolon
+between clauses, or commas and parentheses for a parenthetical.
 
 ## Running locally
 
@@ -77,33 +83,25 @@ Then open http://localhost:4321.
 
 ## Deploying
 
-Any static host works. GitHub Pages, same as White Oak:
+Push to `main`. GitHub Pages rebuilds in about 30 seconds.
 
 ```bash
-cd ~/portfolio && git init && git add . && git commit -m "portfolio"
-gh repo create brodysnyder-portfolio --public --source=. --push
+cd ~/portfolio && git add -A && git commit -m "update" && git push
 ```
 
-Then enable Pages on the `main` branch in repo settings, and add a `CNAME` file
-containing your domain if you point one at it.
+For a custom domain, add a `CNAME` file at the repo root containing the domain
+and point DNS at GitHub Pages.
 
-## Before you publish: check these
+## The PDF
 
-- **Iridium (project 01)**: the write-up stays at the level already on your
-  résumé, but you know the IP line better than I do. Read it once.
-- **TSA / Kalshi (project 06)**: charts come from the team's `public/` folder
-  and its explicitly public-safe report. Worth a quick word with ML@Purdue
-  before it goes on a public site under your name.
-- **LinkedIn URL**: `js/main.js` links to `linkedin.com/in/brody-snyder`.
-  Fix it in `index.html` if that isn't your handle.
-- **Phone number**: deliberately left off. It's on the résumé PDF, which is
-  linked; remove that link if you'd rather it not be public.
-- **Personal OS (project 08)**: no screenshot, because the dashboard renders
-  your real data. There's a good one available if you want to redact it first.
+`~/portfolio-pdf` builds a print version from this same `projects.js`. If you
+change content here, rerun `./render.sh` there so the two match.
 
 ## Notes
 
-- Accessible: keyboard-navigable, focus-trapped modal, `Esc` to close, skip link,
-  respects `prefers-reduced-motion` (the hero canvas renders one static frame).
-- Deep links work: `…/#burbio` opens straight into that case study.
-- Total page weight is about 3 MB, almost all of it project imagery.
+- Keyboard accessible: rows are real buttons, the overlay traps focus, `Esc` closes.
+- Deep links work. `bsniddy.github.io/#burbio` opens that project directly.
+- Respects `prefers-reduced-motion`.
+- Before sharing widely: the Iridium write-up stays at résumé level, and the
+  ML@Purdue charts come from that team's public-safe report. Both are worth a
+  second read.
