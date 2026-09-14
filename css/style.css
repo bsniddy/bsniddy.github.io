@@ -50,7 +50,21 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 .wrap{ max-width:var(--wrap); margin-inline:auto; padding-inline:var(--gut); }
 
 /* ═══ HEADER ════════════════════════════════════════════ */
-.head{ padding:clamp(64px,12vw,132px) 0 clamp(40px,6vw,64px); }
+/* same two columns as the list below, so the portrait's left edge lines up
+   with every project thumbnail */
+.head{
+  display:grid;
+  grid-template-columns:260px 1fr;
+  gap:clamp(22px,3.5vw,40px);
+  align-items:start;
+  padding:clamp(56px,10vw,112px) 0 clamp(40px,6vw,64px);
+}
+.head__photo{
+  width:190px; height:190px; object-fit:cover;
+  border:1px solid var(--rule);
+  background:#F4F4F4;
+}
+.head__text{ min-width:0; padding-top:4px; }
 .head__name{
   font-size:clamp(28px,4.4vw,40px); font-weight:600;
   letter-spacing:-.025em; line-height:1.1;
@@ -199,6 +213,8 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 
 /* ═══ RESPONSIVE ════════════════════════════════════════ */
 @media (max-width:720px){
+  .head{ grid-template-columns:1fr; gap:24px; }
+  .head__photo{ width:128px; height:128px; }
   .row__btn{ grid-template-columns:1fr; gap:16px; }
   .row__media{ aspect-ratio:16/9; }
   .row__media--empty{ display:none; }

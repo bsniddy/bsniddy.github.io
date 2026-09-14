@@ -156,9 +156,6 @@ const PROJECTS = [
     cat: 'ML & CV',
     tags: ['ML & CV', 'FORECASTING', 'BACKTESTING'],
     accent: '#4C9DFF',
-    cover: 'assets/work/mlp-baselines.png',
-    coverFit: 'contain',
-    coverPad: true,
     blurb: 'Daily passenger-throughput forecasting judged the only way that counts: walk-forward, against baselines, on unseen weeks.',
     stack: ['Python', 'Pandas', 'Gradient boosting', 'Walk-forward CV'],
     body: [
@@ -166,11 +163,7 @@ const PROJECTS = [
       { h: 'Approach', p: 'The team mapped a Kalshi market back to daily TSA checkpoint throughput, layered external demand and disruption signals on top, and put every candidate feature through correlation and lag-profile screening before it was allowed near a model. Evaluation is walk-forward: train on the past, predict the next window, never peek.' },
       { h: 'Result', p: 'Against a naive seasonal baseline the release candidate cut daily MAE by roughly 76%, and comfortably beat the tree baseline it was measured against. More usefully, the validation standard means that number survives contact with weeks the model has never seen.' }
     ],
-    gallery: [
-      { src: 'assets/work/mlp-baselines.png', cap: 'Daily MAE against baselines: the release candidate cuts error ~76% versus naive seasonal.', pad: true },
-      { src: 'assets/work/mlp-generations.png', cap: 'Model generations. Each step is a validation gate passed, not a leaderboard climb.', pad: true }
-    ],
-    note: 'Collaborative ML@Purdue project. Charts are from the team\'s public-safe report; features, model configuration and trading rules are intentionally omitted.'
+    note: 'Collaborative ML@Purdue project. Features, model configuration and trading rules are intentionally omitted.'
   },
 
   /* ── 07 ─────────────────────────────────────────────── */
